@@ -1,6 +1,6 @@
 module github.com/xiazemin/go-langserver
 
-go 1.23.0
+go 1.25.0
 
 require (
 	github.com/die-net/lrucache v0.0.0-20190707192454-883874fe3947
