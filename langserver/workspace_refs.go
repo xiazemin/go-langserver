@@ -19,12 +19,12 @@ import (
 
 	opentracing "github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
-	"github.com/sourcegraph/go-langserver/langserver/internal/refs"
-	"github.com/sourcegraph/go-langserver/langserver/util"
-	"github.com/sourcegraph/go-langserver/pkg/tools"
 	"github.com/sourcegraph/go-lsp"
 	"github.com/sourcegraph/go-lsp/lspext"
 	"github.com/sourcegraph/jsonrpc2"
+	"github.com/xiazemin/go-langserver/langserver/internal/refs"
+	"github.com/xiazemin/go-langserver/langserver/util"
+	"github.com/xiazemin/go-langserver/pkg/tools"
 )
 
 // workspaceReferencesTimeout is the timeout used for workspace/xreferences

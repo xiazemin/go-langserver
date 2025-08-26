@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/sourcegraph/go-langserver/langserver/internal/gocode/lookdot"
+	"github.com/xiazemin/go-langserver/langserver/internal/gocode/lookdot"
 )
 
 type Config struct {

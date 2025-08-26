@@ -15,10 +15,10 @@ import (
 	"strings"
 
 	doc "github.com/slimsag/godocmd"
-	"github.com/sourcegraph/go-langserver/langserver/internal/godef"
-	"github.com/sourcegraph/go-langserver/langserver/util"
 	"github.com/sourcegraph/go-lsp"
 	"github.com/sourcegraph/jsonrpc2"
+	"github.com/xiazemin/go-langserver/langserver/internal/godef"
+	"github.com/xiazemin/go-langserver/langserver/util"
 	"golang.org/x/tools/go/packages"
 )
 
@@ -582,7 +582,6 @@ func findDocTarget(fset *token.FileSet, target token.Position, in interface{}) i
 // *doc.Value
 // *doc.Type
 // *doc.Func
-//
 func fmtDocObject(fset *token.FileSet, x interface{}, target token.Position) ([]lsp.MarkedString, ast.Node) {
 	switch v := x.(type) {
 	case *doc.Value: // Vars and Consts

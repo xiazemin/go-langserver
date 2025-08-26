@@ -18,11 +18,11 @@ import (
 	yaml "gopkg.in/yaml.v2"
 
 	"github.com/sourcegraph/ctxvfs"
-	"github.com/sourcegraph/go-langserver/gituri"
-	"github.com/sourcegraph/go-langserver/langserver"
-	"github.com/sourcegraph/go-langserver/pkg/lsp"
 	"github.com/sourcegraph/go-lsp/lspext"
 	"github.com/sourcegraph/jsonx"
+	"github.com/xiazemin/go-langserver/gituri"
+	"github.com/xiazemin/go-langserver/langserver"
+	"github.com/xiazemin/go-langserver/pkg/lsp"
 )
 
 const (
@@ -177,16 +177,16 @@ func unmarshalJSONC(text string, v interface{}) error {
 // matching one of two formats below (because we do not want to actually
 // execute .envrc):
 //
-// 	export GOPATH=VALUE
-// 	GOPATH_add VALUE
+//	export GOPATH=VALUE
+//	GOPATH_add VALUE
 //
 // Where "VALUE" may be any of:
 //
-// 	some/relative/path
-// 	one/:two:three/
-// 	${PWD}/path
-// 	$(PWD)/path
-// 	`pwd`/path
+//	some/relative/path
+//	one/:two:three/
+//	${PWD}/path
+//	$(PWD)/path
+//	`pwd`/path
 //
 // Or any of the above with double or single quotes wrapped around them. We
 // will ignore any absolute path values.
@@ -244,11 +244,11 @@ func unquote(s, quote string) string {
 // GOPATH. We detect a .sourcegraph/config.json file with the following
 // contents:
 //
-// 	{
-// 	  "go": {
-// 	    "GOPATH": ["gopathdir", "gopathdir2"]
-// 	  }
-// 	}
+//	{
+//	  "go": {
+//	    "GOPATH": ["gopathdir", "gopathdir2"]
+//	  }
+//	}
 //
 // See the sourcegraphConfig struct documentation for more info.
 //
@@ -278,7 +278,7 @@ type sourcegraphConfig struct {
 		// This is to support monorepos such as the ones described in
 		// https://blog.gopheracademy.com/advent-2015/go-in-a-monorepo/
 		//
-		// See https://github.com/sourcegraph/go-langserver#custom-gopaths-go-monorepos.
+		// See https://github.com/xiazemin/go-langserver#custom-gopaths-go-monorepos.
 		GOPATH []string
 
 		// RootImportPath defines what Go import path corresponds to the
@@ -289,7 +289,7 @@ type sourcegraphConfig struct {
 		// information (from glide.yml or canonical import path comments) and
 		// gives you an opportunity to specify it directly.
 		//
-		// See https://github.com/sourcegraph/go-langserver#vanity-import-paths.
+		// See https://github.com/xiazemin/go-langserver#vanity-import-paths.
 		RootImportPath string
 	} `json:"go"`
 }

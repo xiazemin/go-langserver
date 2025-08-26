@@ -9,10 +9,10 @@ import (
 	"go/types"
 	"sort"
 
-	"github.com/sourcegraph/go-langserver/langserver/util"
 	"github.com/sourcegraph/go-lsp"
 	"github.com/sourcegraph/go-lsp/lspext"
 	"github.com/sourcegraph/jsonrpc2"
+	"github.com/xiazemin/go-langserver/langserver/util"
 	"golang.org/x/tools/go/loader"
 	"golang.org/x/tools/go/types/typeutil"
 	"golang.org/x/tools/refactor/importgraph"

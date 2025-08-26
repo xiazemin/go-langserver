@@ -6,10 +6,10 @@ import (
 	"log"
 	"time"
 
-	"github.com/sourcegraph/go-langserver/langserver/util"
-	"github.com/sourcegraph/go-langserver/pkg/tools"
 	"github.com/sourcegraph/go-lsp/lspext"
 	"github.com/sourcegraph/jsonrpc2"
+	"github.com/xiazemin/go-langserver/langserver/util"
+	"github.com/xiazemin/go-langserver/pkg/tools"
 )
 
 // workspacePackagesTimeout is the timeout used for workspace/xpackages

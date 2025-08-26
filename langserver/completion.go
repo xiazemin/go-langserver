@@ -6,11 +6,11 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/sourcegraph/go-langserver/langserver/internal/gocode"
-	"github.com/sourcegraph/go-langserver/langserver/internal/gocode/gbimporter"
-	"github.com/sourcegraph/go-langserver/langserver/util"
 	"github.com/sourcegraph/go-lsp"
 	"github.com/sourcegraph/jsonrpc2"
+	"github.com/xiazemin/go-langserver/langserver/internal/gocode"
+	"github.com/xiazemin/go-langserver/langserver/internal/gocode/gbimporter"
+	"github.com/xiazemin/go-langserver/langserver/util"
 )
 
 var (

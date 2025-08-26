@@ -12,13 +12,13 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/sourcegraph/ctxvfs"
-	gobuildserver "github.com/sourcegraph/go-langserver/buildserver"
-	"github.com/sourcegraph/go-langserver/gituri"
-	"github.com/sourcegraph/go-langserver/gosrc"
-	"github.com/sourcegraph/go-langserver/pkg/lsp"
-	lsext "github.com/sourcegraph/go-langserver/pkg/lspext"
-	"github.com/sourcegraph/go-langserver/vfsutil"
 	"github.com/sourcegraph/go-lsp/lspext"
+	gobuildserver "github.com/xiazemin/go-langserver/buildserver"
+	"github.com/xiazemin/go-langserver/gituri"
+	"github.com/xiazemin/go-langserver/gosrc"
+	"github.com/xiazemin/go-langserver/pkg/lsp"
+	lsext "github.com/xiazemin/go-langserver/pkg/lspext"
+	"github.com/xiazemin/go-langserver/vfsutil"
 )
 
 func init() {

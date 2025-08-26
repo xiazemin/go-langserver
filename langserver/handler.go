@@ -19,7 +19,7 @@ import (
 	"github.com/sourcegraph/go-lsp/lspext"
 	"github.com/sourcegraph/jsonrpc2"
 
-	"github.com/sourcegraph/go-langserver/langserver/util"
+	"github.com/xiazemin/go-langserver/langserver/util"
 )
 
 // NewHandler creates a Go language server handler.

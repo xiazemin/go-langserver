@@ -14,7 +14,7 @@ import (
 	"github.com/sourcegraph/go-lsp"
 	"github.com/sourcegraph/jsonrpc2"
 
-	"github.com/sourcegraph/go-langserver/langserver/util"
+	"github.com/xiazemin/go-langserver/langserver/util"
 )
 
 type diagnostics map[string][]*lsp.Diagnostic // map of URI to diagnostics (for PublishDiagnosticParams)

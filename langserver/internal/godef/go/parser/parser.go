@@ -6,7 +6,6 @@
 // forms (see the various Parse* functions); the output is an abstract
 // syntax tree (AST) representing the Go source. The parser is invoked
 // through one of the Parse* functions.
-//
 package parser
 
 import (
@@ -25,7 +24,6 @@ import (
 // The mode parameter to the Parse* functions is a set of flags (or 0).
 // They control the amount of source code parsed and other optional
 // parser functionality.
-//
 const (
 	PackageClauseOnly uint = 1 << iota // parsing stops after package clause
 	ImportsOnly                        // parsing stops after import declarations
@@ -368,7 +366,6 @@ func (p *parser) consumeComment() (comment *ast.Comment, endline int) {
 // comments list, and return it together with the line at which
 // the last comment in the group ends. An empty line or non-comment
 // token terminates a comment group.
-//
 func (p *parser) consumeCommentGroup() (comments *ast.CommentGroup, endline int) {
 	var list []*ast.Comment
 	endline = p.file.Line(p.pos)
@@ -399,7 +396,6 @@ func (p *parser) consumeCommentGroup() (comments *ast.CommentGroup, endline int)
 //
 // Lead and line comments may be considered documentation that is
 // stored in the AST.
-//
 func (p *parser) next() {
 	p.leadComment = nil
 	p.lineComment = nil
@@ -660,7 +656,6 @@ func (p *parser) parseFieldDecl() *ast.Field {
 // The object for the identifier in an anonymous
 // field must point to the original type because
 // the object has its own identity as a field member.
-//
 func makeAnonField(t, declType ast.Expr) ast.Expr {
 	switch t := t.(type) {
 	case *ast.Ident:
@@ -855,7 +850,7 @@ func (p *parser) parseFuncType() (*ast.FuncType, *ast.Scope) {
 	scope := p.newScope(p.topScope) // function scope
 	params, results := p.parseSignature(scope)
 
-	return &ast.FuncType{pos, params, results}, scope
+	return &ast.FuncType{Func: pos, Params: params, Results: results}, scope
 }
 
 func (p *parser) parseMethodSpec() *ast.Field {
@@ -874,7 +869,7 @@ func (p *parser) parseMethodSpec() *ast.Field {
 
 		scope := p.newScope(nil) // method scope
 		params, results := p.parseSignature(scope)
-		f.Type = &ast.FuncType{token.NoPos, params, results}
+		f.Type = &ast.FuncType{Func: token.NoPos, Params: params, Results: results}
 	} else {
 		// embedded interface
 		f.Type = x
@@ -1039,7 +1034,6 @@ func (p *parser) parseFuncTypeOrLit() ast.Expr {
 
 // parseOperand may return an expression or a raw type (incl. array
 // types of the form [...]T. Callers must verify the result.
-//
 func (p *parser) parseOperand() ast.Expr {
 	if p.trace {
 		defer un(trace(p, "Operand"))
@@ -1303,7 +1297,6 @@ func unparen(x ast.Expr) ast.Expr {
 
 // checkExprOrType checks that x is an expression or a type
 // (and not a raw type such as [...]T).
-//
 func (p *parser) checkExprOrType(x ast.Expr) ast.Expr {
 	switch t := unparen(x).(type) {
 	case *ast.ParenExpr:
@@ -1409,7 +1402,8 @@ func (p *parser) parseBinaryExpr(prec1 int) ast.Expr {
 }
 
 // TODO(gri): parseExpr may return a type or even a raw type ([..]int) -
-//            should reject when a type/raw type is obviously not allowed
+//
+//	should reject when a type/raw type is obviously not allowed
 func (p *parser) parseExpr() ast.Expr {
 	if p.trace {
 		defer un(trace(p, "Expression"))
@@ -1886,7 +1880,7 @@ func (p *parser) parseForStmt() ast.Stmt {
 		if rhs, isUnary := as.Rhs[0].(*ast.UnaryExpr); isUnary && rhs.Op == token.RANGE {
 			// rhs is range expression
 			// (any short variable declaration was handled by parseSimpleStat above)
-			return &ast.RangeStmt{pos, key, value, as.TokPos, as.Tok, rhs.X, body}
+			return &ast.RangeStmt{For: pos, Key: key, Value: value, TokPos: as.TokPos, Tok: as.Tok, X: rhs.X, Body: body}
 		}
 		p.errorExpected(s2.Pos(), "range clause")
 		return &ast.BadStmt{pos, body.End()}
@@ -2140,7 +2134,7 @@ func (p *parser) parseFuncDecl() *ast.FuncDecl {
 	}
 	p.expectSemi()
 
-	decl := &ast.FuncDecl{doc, recv, ident, &ast.FuncType{pos, params, results}, body}
+	decl := &ast.FuncDecl{doc, recv, ident, &ast.FuncType{Func: pos, Params: params, Results: results}, body}
 	// Go spec: The scope of an identifier denoting a constant, type,
 	// variable, or function (but not method) declared at top level
 	// (outside any function) is the package block.
@@ -2244,5 +2238,5 @@ func (p *parser) parseFile() *ast.File {
 		panic("internal error: imbalanced scopes")
 	}
 
-	return &ast.File{doc, pos, ident, decls, p.fileScope, nil, nil, p.comments}
+	return &ast.File{Doc: doc, Package: pos, Name: ident, Decls: decls, Scope: p.fileScope, Imports: nil, Unresolved: nil, Comments: p.comments}
 }

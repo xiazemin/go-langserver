@@ -12,8 +12,8 @@ import (
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/sourcegraph/ctxvfs"
-	"github.com/sourcegraph/go-langserver/vfsutil"
 	"github.com/sourcegraph/go-lsp/lspext"
+	"github.com/xiazemin/go-langserver/vfsutil"
 )
 
 // RemoteFS fetches a zip archive from the URL specified in the zipURL field of

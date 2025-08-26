@@ -8,7 +8,7 @@ import (
 
 	"github.com/sourcegraph/ctxvfs"
 
-	"github.com/sourcegraph/go-langserver/langserver/util"
+	"github.com/xiazemin/go-langserver/langserver/util"
 )
 
 // HandlerShared contains data structures that a build server and its

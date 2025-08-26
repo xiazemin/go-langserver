@@ -6,7 +6,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/sourcegraph/go-langserver/langserver/util"
+	"github.com/xiazemin/go-langserver/langserver/util"
 )
 
 type goDependencyReference struct {

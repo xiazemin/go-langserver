@@ -21,10 +21,10 @@ import (
 	"testing"
 
 	"github.com/sourcegraph/ctxvfs"
-	"github.com/sourcegraph/go-langserver/langserver/util"
 	"github.com/sourcegraph/go-lsp"
 	"github.com/sourcegraph/go-lsp/lspext"
 	"github.com/sourcegraph/jsonrpc2"
+	"github.com/xiazemin/go-langserver/langserver/util"
 )
 
 type serverTestCase struct {

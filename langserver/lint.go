@@ -13,9 +13,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/sourcegraph/go-langserver/pkg/tools"
 	"github.com/sourcegraph/go-lsp"
 	"github.com/sourcegraph/jsonrpc2"
+	"github.com/xiazemin/go-langserver/pkg/tools"
 )
 
 const (

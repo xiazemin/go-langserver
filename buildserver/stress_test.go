@@ -13,11 +13,11 @@ import (
 
 	"github.com/neelance/parallel"
 	"github.com/sourcegraph/ctxvfs"
-	gobuildserver "github.com/sourcegraph/go-langserver/buildserver"
-	"github.com/sourcegraph/go-langserver/gituri"
-	"github.com/sourcegraph/go-langserver/pkg/lsp"
 	"github.com/sourcegraph/go-lsp/lspext"
 	"github.com/sourcegraph/jsonrpc2"
+	gobuildserver "github.com/xiazemin/go-langserver/buildserver"
+	"github.com/xiazemin/go-langserver/gituri"
+	"github.com/xiazemin/go-langserver/pkg/lsp"
 )
 
 // BenchmarkStress benchmarks performing "textDocument/definition",

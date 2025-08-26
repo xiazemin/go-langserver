@@ -5,8 +5,8 @@ import (
 	"go/types"
 	"log"
 
-	"github.com/sourcegraph/go-langserver/langserver/internal/gocode/gbimporter"
-	"github.com/sourcegraph/go-langserver/langserver/internal/gocode/suggest"
+	"github.com/xiazemin/go-langserver/langserver/internal/gocode/gbimporter"
+	"github.com/xiazemin/go-langserver/langserver/internal/gocode/suggest"
 )
 
 type AutoCompleteRequest struct {

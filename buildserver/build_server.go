@@ -26,12 +26,12 @@ import (
 	"github.com/opentracing/opentracing-go/ext"
 	otlog "github.com/opentracing/opentracing-go/log"
 	"github.com/sourcegraph/ctxvfs"
-	"github.com/sourcegraph/go-langserver/gosrc"
-	"github.com/sourcegraph/go-langserver/langserver"
-	"github.com/sourcegraph/go-langserver/langserver/util"
-	"github.com/sourcegraph/go-langserver/pkg/lsp"
 	lspext "github.com/sourcegraph/go-lsp/lspext"
 	"github.com/sourcegraph/jsonrpc2"
+	"github.com/xiazemin/go-langserver/gosrc"
+	"github.com/xiazemin/go-langserver/langserver"
+	"github.com/xiazemin/go-langserver/langserver/util"
+	"github.com/xiazemin/go-langserver/pkg/lsp"
 )
 
 // Debug if true will cause extra logging information to be printed

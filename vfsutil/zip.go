@@ -15,7 +15,7 @@ import (
 
 	"github.com/fhs/go-netrc/netrc"
 	"github.com/pkg/errors"
-	"github.com/sourcegraph/go-langserver/diskcache"
+	"github.com/xiazemin/go-langserver/diskcache"
 
 	opentracing "github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"

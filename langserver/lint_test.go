@@ -10,8 +10,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sourcegraph/go-langserver/langserver/util"
 	"github.com/sourcegraph/go-lsp"
+	"github.com/xiazemin/go-langserver/langserver/util"
 )
 
 func TestParseLintLine(t *testing.T) {

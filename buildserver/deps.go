@@ -18,11 +18,11 @@ import (
 	otlog "github.com/opentracing/opentracing-go/log"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/sourcegraph/ctxvfs"
-	"github.com/sourcegraph/go-langserver/gosrc"
-	"github.com/sourcegraph/go-langserver/langserver"
-	"github.com/sourcegraph/go-langserver/langserver/util"
-	"github.com/sourcegraph/go-langserver/pkg/lsp"
-	"github.com/sourcegraph/go-langserver/vfsutil"
+	"github.com/xiazemin/go-langserver/gosrc"
+	"github.com/xiazemin/go-langserver/langserver"
+	"github.com/xiazemin/go-langserver/langserver/util"
+	"github.com/xiazemin/go-langserver/pkg/lsp"
+	"github.com/xiazemin/go-langserver/vfsutil"
 )
 
 type keyMutex struct {

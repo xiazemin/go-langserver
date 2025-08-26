@@ -8,8 +8,8 @@ import (
 
 	opentracing "github.com/opentracing/opentracing-go"
 
-	"github.com/sourcegraph/go-langserver/langserver/util"
 	"github.com/sourcegraph/go-lsp"
+	"github.com/xiazemin/go-langserver/langserver/util"
 )
 
 // HandlerCommon contains functionality that both the build and lang

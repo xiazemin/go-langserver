@@ -7,11 +7,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	"golang.org/x/net/context"
+	"context"
 
 	"golang.org/x/tools/go/buildutil"
 
-	"github.com/sourcegraph/go-langserver/langserver/util"
+	"github.com/xiazemin/go-langserver/langserver/util"
 )
 
 // BuildContext creates a build.Context which uses the overlay FS and the InitializeParams.BuildContext overrides.
@@ -49,12 +49,12 @@ func (h *LangHandler) BuildContext(ctx context.Context) *build.Context {
 // ContainingPackage returns the package that contains the given
 // filename. It is like buildutil.ContainingPackage, except that:
 //
-// * it returns the whole package (i.e., it doesn't use build.FindOnly)
-// * it does not perform FS calls that are unnecessary for us (such
-//   as searching the GOROOT; this is only called on the main
-//   workspace's code, not its deps).
-// * if the file is in the xtest package (package p_test not package p),
-//   it returns build.Package only representing that xtest package
+//   - it returns the whole package (i.e., it doesn't use build.FindOnly)
+//   - it does not perform FS calls that are unnecessary for us (such
+//     as searching the GOROOT; this is only called on the main
+//     workspace's code, not its deps).
+//   - if the file is in the xtest package (package p_test not package p),
+//     it returns build.Package only representing that xtest package
 func ContainingPackage(bctx *build.Context, filename, rootPath string) (*build.Package, error) {
 	gopaths := buildutil.SplitPathList(bctx, bctx.GOPATH) // list will be empty with no GOPATH
 	for _, gopath := range gopaths {

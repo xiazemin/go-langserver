@@ -1,4 +1,4 @@
-package main // import "github.com/sourcegraph/go-langserver"
+package main // import "github.com/xiazemin/go-langserver"
 
 import (
 	"context"
@@ -19,17 +19,17 @@ import (
 	"github.com/keegancsmith/tmpfriend"
 	"github.com/pkg/errors"
 
-	"github.com/sourcegraph/go-langserver/debugserver"
-	"github.com/sourcegraph/go-langserver/tracer"
-	"github.com/sourcegraph/go-langserver/vfsutil"
+	"github.com/xiazemin/go-langserver/debugserver"
+	"github.com/xiazemin/go-langserver/tracer"
+	"github.com/xiazemin/go-langserver/vfsutil"
 
 	"github.com/prometheus/client_golang/prometheus"
 
 	"github.com/gorilla/websocket"
-	"github.com/sourcegraph/go-langserver/buildserver"
-	"github.com/sourcegraph/go-langserver/langserver"
 	"github.com/sourcegraph/jsonrpc2"
 	wsjsonrpc2 "github.com/sourcegraph/jsonrpc2/websocket"
+	"github.com/xiazemin/go-langserver/buildserver"
+	"github.com/xiazemin/go-langserver/langserver"
 
 	_ "net/http/pprof"
 )
@@ -307,10 +307,9 @@ func (stdrwc) Close() error {
 // The end effect of performing this is that repeating "hover over code" -> "make an edit"
 // 10 times inside a large package like github.com/docker/docker/cmd/dockerd:
 //
-//
-// 	| Real Before | Real After | Real Change | Go Before | Go After | Go Change |
-// 	|-------------|------------|-------------|-----------|----------|-----------|
-// 	| 7.61GB      | 4.12GB     | -45.86%     | 3.92GB    | 3.33GB   | -15.05%   |
+//	| Real Before | Real After | Real Change | Go Before | Go After | Go Change |
+//	|-------------|------------|-------------|-----------|----------|-----------|
+//	| 7.61GB      | 4.12GB     | -45.86%     | 3.92GB    | 3.33GB   | -15.05%   |
 //
 // Where `Real` means real memory reported by OS X Activity Monitor, and `Go`
 // means memory reported by Go as being in use.

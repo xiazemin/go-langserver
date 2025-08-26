@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/sourcegraph/ctxvfs"
-	"github.com/sourcegraph/go-langserver/pkg/lsp"
+	"github.com/xiazemin/go-langserver/pkg/lsp"
 
 	"github.com/sourcegraph/go-lsp/lspext"
 )

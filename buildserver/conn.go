@@ -9,9 +9,9 @@ import (
 
 	"github.com/sourcegraph/jsonrpc2"
 
-	"github.com/sourcegraph/go-langserver/langserver"
-	"github.com/sourcegraph/go-langserver/pkg/lsp"
-	"github.com/sourcegraph/go-langserver/pkg/lspext"
+	"github.com/xiazemin/go-langserver/langserver"
+	"github.com/xiazemin/go-langserver/pkg/lsp"
+	"github.com/xiazemin/go-langserver/pkg/lspext"
 )
 
 // jsonrpc2ConnImpl implements langserver.JSONRPC2Conn. See

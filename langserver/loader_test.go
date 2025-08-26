@@ -12,9 +12,9 @@ import (
 
 	opentracing "github.com/opentracing/opentracing-go"
 
-	"github.com/sourcegraph/go-langserver/langserver/util"
 	"github.com/sourcegraph/go-lsp"
 	"github.com/sourcegraph/jsonrpc2"
+	"github.com/xiazemin/go-langserver/langserver/util"
 )
 
 var loaderCases = map[string]struct {
@@ -62,7 +62,7 @@ func TestLoader(t *testing.T) {
 //
 // Run it with:
 //
-//   go test ./langserver -bench Loader -benchmem
+//	go test ./langserver -bench Loader -benchmem
 func BenchmarkLoader(b *testing.B) {
 	ctx := context.Background()
 	for label, tc := range loaderCases {

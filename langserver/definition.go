@@ -11,11 +11,11 @@ import (
 	"log"
 	"path/filepath"
 
-	"github.com/sourcegraph/go-langserver/langserver/internal/godef"
-	"github.com/sourcegraph/go-langserver/langserver/internal/refs"
-	"github.com/sourcegraph/go-langserver/langserver/util"
 	"github.com/sourcegraph/go-lsp"
 	"github.com/sourcegraph/jsonrpc2"
+	"github.com/xiazemin/go-langserver/langserver/internal/godef"
+	"github.com/xiazemin/go-langserver/langserver/internal/refs"
+	"github.com/xiazemin/go-langserver/langserver/util"
 
 	"golang.org/x/tools/go/loader"
 )

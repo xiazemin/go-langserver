@@ -14,7 +14,7 @@ import (
 
 	"go/ast"
 
-	"github.com/sourcegraph/go-langserver/langserver/internal/godef/go/parser"
+	"github.com/xiazemin/go-langserver/langserver/internal/godef/go/parser"
 )
 
 var testStdlib = flag.Bool("test-stdlib", false, "test all symbols in standard library (will fail)")
@@ -281,7 +281,6 @@ type sym struct {
 // The first occurrence of a translated symbol must be followed by a @
 // and letter representing the symbol kind (see kinds, above). All
 // subsequent references to that symbol must resolve to the given kind.
-//
 func translateSymbols(code []byte) (result []byte, offsetMap map[int]*sym) {
 	offsetMap = make(map[int]*sym)
 	buf := bytes.NewBuffer(code)

@@ -9,7 +9,7 @@ import (
 	"github.com/sourcegraph/go-lsp"
 	"golang.org/x/tools/go/loader"
 
-	"github.com/sourcegraph/go-langserver/langserver/util"
+	"github.com/xiazemin/go-langserver/langserver/util"
 )
 
 func offsetForPosition(contents []byte, p lsp.Position) (offset int, valid bool, whyInvalid string) {
@@ -85,12 +85,13 @@ const (
 )
 
 // findInterestingNode classifies the syntax node denoted by path as one of:
-//    - an expression, part of an expression or a reference to a constant
-//      or variable;
-//    - a type, part of a type, or a reference to a named type;
-//    - a statement, part of a statement, or a label referring to a statement;
-//    - part of a package declaration or import spec.
-//    - none of the above.
+//   - an expression, part of an expression or a reference to a constant
+//     or variable;
+//   - a type, part of a type, or a reference to a named type;
+//   - a statement, part of a statement, or a label referring to a statement;
+//   - part of a package declaration or import spec.
+//   - none of the above.
+//
 // and returns the most "interesting" associated node, which may be
 // the same node, an ancestor or a descendent.
 //

@@ -6,39 +6,39 @@ import (
 	"strings"
 	"testing"
 
-	gobuildserver "github.com/sourcegraph/go-langserver/buildserver"
-	"github.com/sourcegraph/go-langserver/gituri"
-	"github.com/sourcegraph/go-langserver/pkg/lsp"
 	"github.com/sourcegraph/go-lsp/lspext"
 	"github.com/sourcegraph/jsonrpc2"
+	gobuildserver "github.com/xiazemin/go-langserver/buildserver"
+	"github.com/xiazemin/go-langserver/gituri"
+	"github.com/xiazemin/go-langserver/pkg/lsp"
 )
 
 // Notable benchmark results:
 //
 // When the build server passes ALL files to the lang server using textDocument/didOpen:
 //
-//   BenchmarkIntegration/github.com-gorilla-mux-8	1	1984109426 ns/op	612749040 B/op	 3017725 allocs/op
+//	BenchmarkIntegration/github.com-gorilla-mux-8	1	1984109426 ns/op	612749040 B/op	 3017725 allocs/op
 //
 // When the build server shares an in-memory VFS with the lang server:
 //
-//   BenchmarkIntegration/github.com-gorilla-mux-8	2	 615687151 ns/op	325774544 B/op	 3255045 allocs/op
+//	BenchmarkIntegration/github.com-gorilla-mux-8	2	 615687151 ns/op	325774544 B/op	 3255045 allocs/op
 //
 // When no files are present and the build server accesses files over a VFS residing on the LSP proxy:
 //
-//   BenchmarkIntegration/github.com-gorilla-mux-8	2	 722473764 ns/op	309509740 B/op	 3114545 allocs/op
+//	BenchmarkIntegration/github.com-gorilla-mux-8	2	 722473764 ns/op	309509740 B/op	 3114545 allocs/op
 //
 // As of ed4362e65f1f7ffa643d5af8faf63ceaaef979b0:
 //
-//   BenchmarkIntegration/github.com-golang-go-definition-12  1  4332188655 ns/op  689994240 B/op  2166801 allocs/op
+//	BenchmarkIntegration/github.com-golang-go-definition-12  1  4332188655 ns/op  689994240 B/op  2166801 allocs/op
 //
 // To compare old vs. new benchmark results:
 //
-//   # Run this before making the changes that you want to benchmark:
-//   go get -u golang.org/x/tools/cmd/benchcmp
-//   go test github.com/sourcegraph/sourcegraph/xlang -bench=Integration -benchmem -run='^$' > /tmp/BenchmarkIntegration.old.txt
+//	# Run this before making the changes that you want to benchmark:
+//	go get -u golang.org/x/tools/cmd/benchcmp
+//	go test github.com/sourcegraph/sourcegraph/xlang -bench=Integration -benchmem -run='^$' > /tmp/BenchmarkIntegration.old.txt
 //
-//   # Run this after you've made the changes that you want to benchmark:
-//   go test github.com/sourcegraph/sourcegraph/xlang -bench=Integration -benchmem -run='^$' | tee /tmp/BenchmarkIntegration.new.txt && benchcmp /tmp/BenchmarkIntegration.{old,new}.txt
+//	# Run this after you've made the changes that you want to benchmark:
+//	go test github.com/sourcegraph/sourcegraph/xlang -bench=Integration -benchmem -run='^$' | tee /tmp/BenchmarkIntegration.new.txt && benchcmp /tmp/BenchmarkIntegration.{old,new}.txt
 func BenchmarkIntegration(b *testing.B) {
 	if testing.Short() {
 		b.Skip("skip long integration test")

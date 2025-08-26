@@ -13,13 +13,13 @@ import (
 	"testing"
 
 	"github.com/sourcegraph/ctxvfs"
-	gobuildserver "github.com/sourcegraph/go-langserver/buildserver"
-	"github.com/sourcegraph/go-langserver/gituri"
-	"github.com/sourcegraph/go-langserver/langserver"
-	"github.com/sourcegraph/go-langserver/pkg/lsp"
-	lsext "github.com/sourcegraph/go-langserver/pkg/lspext"
 	"github.com/sourcegraph/go-lsp/lspext"
 	"github.com/sourcegraph/jsonrpc2"
+	gobuildserver "github.com/xiazemin/go-langserver/buildserver"
+	"github.com/xiazemin/go-langserver/gituri"
+	"github.com/xiazemin/go-langserver/langserver"
+	"github.com/xiazemin/go-langserver/pkg/lsp"
+	lsext "github.com/xiazemin/go-langserver/pkg/lspext"
 )
 
 func TestProxy(t *testing.T) {

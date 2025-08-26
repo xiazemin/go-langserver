@@ -13,9 +13,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/sourcegraph/go-langserver/langserver/util"
 	"github.com/sourcegraph/go-lsp"
 	"github.com/sourcegraph/jsonrpc2"
+	"github.com/xiazemin/go-langserver/langserver/util"
 )
 
 // TestIntegration_FileSystem tests using the server against the real
@@ -185,7 +185,7 @@ func TestIntegration_FileSystem_Format2(t *testing.T) {
 
 func TestIntegration_FileSystem_Lint(t *testing.T) {
 	if runtime.GOOS == "windows" {
-		t.Skip("Test is failing on windows https://github.com/sourcegraph/go-langserver/issues/328")
+		t.Skip("Test is failing on windows https://github.com/xiazemin/go-langserver/issues/328")
 	}
 	files := map[string]string{
 		"A.go": strings.Join([]string{

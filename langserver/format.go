@@ -15,9 +15,9 @@ import (
 	"golang.org/x/tools/go/buildutil"
 	"golang.org/x/tools/imports"
 
-	"github.com/sourcegraph/go-langserver/langserver/util"
 	"github.com/sourcegraph/go-lsp"
 	"github.com/sourcegraph/jsonrpc2"
+	"github.com/xiazemin/go-langserver/langserver/util"
 )
 
 const (

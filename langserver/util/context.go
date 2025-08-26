@@ -9,7 +9,7 @@ import (
 
 	"github.com/sourcegraph/ctxvfs"
 
-	"golang.org/x/net/context"
+	"context"
 )
 
 func PrepareContext(bctx *build.Context, ctx context.Context, fs ctxvfs.FileSystem) {
